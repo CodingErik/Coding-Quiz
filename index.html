@@ -1,22 +1,105 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="bootstrap.min.css"> -->
+    <link rel="stylesheet" href="style.css">
 
-    <title>Hello, world!</title>
-  </head>
-  <body>
-    <h1>Hello, world!</h1>
+    <title>Coding Quiz</title>
+</head>
+
+<body class="bg-dark">
+
+
+    <ul class="nav justify-content-around bg-info rounded-pill">
+        <li class="nav-item">
+            Time: <span class="display-4">00</span>
+        </li>
+        <li class="nav-item">
+            Score: <span class="display-4">00</span>
+        </li>
+    </ul>
+
+    <main class="container mt-5">
+        <section class="row h-100">
+            <section class="col-12 h-100 d-none bg-info rounded-lg" id="questionCard">
+                <div class="row h-100 ">
+                    <div class="col-12">
+                        <h1 class="display-4"> Question: <span id="questionNumber">What varibale is being phased out of
+                                in ES6?</span> </h1>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark btn-block answerButtons">
+                            <h1>this is dfjsdfldj</h1>
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark btn-block answerButtons">
+                            <h1>this is dfjsdfldj</h1>
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark btn-block answerButtons">
+                            <h1>this is dfjsdfldj</h1>
+                        </button>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark btn-block answerButtons">
+                            <h1>this is dfjsdfldj</h1>
+                        </button>
+                    </div>
+                </div>
+
+
+            </section>
+            <section class="col-12 h-100  bg-info rounded-lg " id="startCard">
+                <div class="row h-100 ">
+                    <div class="col-12">
+                        <h1 class="display-4 text-center font-weight-bolder"> Welcome to the Code quiz </h1>
+                        <hr>
+                        <h1 class="display-4 text-center"> You will have approximately 3 minutes to complete this 10
+                            question quiz. Each question is worth 10 points for a total of 100.
+                            If you get an answer wrong you will be deducted time so answer carefully!</h1>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark btn-block" id="startButton">
+                            <h1 class="text-center font-weight-bolder"> START QUIZ </h1>
+                        </button>
+                    </div>
+                </div>
+            </section>
+            <section class="col-12 h-100 d-none rounded-lg" id="scoreCard">
+                <div class="row h-100">
+                    <div class="col-12 text-info ">
+                        <h1 class="display-4 text-center border border-light rounded-pill font-weight-bolder"> HighScore Board</h1>
+                        
+                    </div>
+                </div>
+            </section>
+
+        </section>
+    </main>
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+    <script src="app.js"></script>
+
 </html>
