@@ -20,16 +20,16 @@
 
     <ul class="nav justify-content-around bg-info rounded-pill">
         <li class="nav-item">
-            Time: <span class="display-4">00</span>
+            Time: <span class="display-4" id="time">05:00</span>
         </li>
         <li class="nav-item">
-            Score: <span class="display-4">00</span>
+            Score: <span class="display-4" id="score" >00</span>
         </li>
     </ul>
 
     <main class="container mt-5">
         <section class="row h-100">
-            <section class="col-12 h-100  bg-info rounded-lg" id="questionCard">
+            <section class="col-12 h-100 d-none bg-info rounded-lg" id="questionCard">
                 <div class="row h-100 ">
                     <div class="col-12" id="questionButtons">
                         <h1 class="display-4"> Question: <span id="questionNumber">What varibale is being phased out of
@@ -59,7 +59,7 @@
 
 
             </section>
-            <section class="col-12 h-100 d-none bg-info rounded-lg " id="startCard">
+            <section class="col-12 h-100  bg-info rounded-lg p-4" id="startCard">
                 <div class="row h-100 ">
                     <div class="col-12">
                         <h1 class="display-4 text-center font-weight-bolder"> Welcome to the Code quiz </h1>
@@ -88,6 +88,9 @@
     </main>
 
 
+
+
+¬ø
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
