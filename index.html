@@ -35,29 +35,24 @@
                         <h1 class="display-4"> Question: <span id="questionNumber">What varibale is being phased out of
                                 in ES6?</span> </h1>
 
-
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons" id="correct">
                             answer 1
                         </button>
-
 
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons">
                             answer 2
                         </button>
 
-
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons">
                             answer 3
                         </button>
-
 
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons">
                             answer 4
                         </button>
                     </div>
                 </div>
-
-
+                
             </section>
             <section class="col-12 h-100  bg-info rounded-lg p-4" id="startCard">
                 <div class="row h-100 ">
@@ -92,35 +87,36 @@
             <section class="col-12 h-100 d-none rounded-lg" id="scoreCard">
                 <div class="row h-100">
                     <div class="col-12 text-info ">
-                        <h1 class="display-4 text-center border border-light rounded-pill font-weight-bolder"> HighScoreBoard</h1>
-                        
-                        <div class="clearfix">
-                            <div class="card">
-                                <h2>Player Sign Up</h2>
-                                <form method="POST">
-                                    <div class="input-group">
-                                        <label for="email">Email</label>
-                                        <input type="text" name="email" id="email" placeholder="janedoe@mail.com" />
-                                    </div>
-                                    <div class="input-group">
-                                        <label for="password">Password</label>
-                                        <input type="password" name="password" id="password"
-                                            placeholder="supersecure123" />
-                                    </div>
-                                    <div id="msg"></div>
-                                    <button id="sign-up">Sign Up</button>
-                                </form>
-                            </div>
+                        <!-- this is the registration form at the end of the game -->
+                        <h2>Final Score:<span id="finalScore">100</span></h2>
 
-                            <div class="card">
-                                <h2>Last Registered User:</h2>
-                                <p><strong>Email:</strong> <span id="user-email"></span></p>
-                                <p><strong>Password:</strong> <span id="user-password"></span></p>
+                        <label for="email">NAME</label>
+                        <input type="text" name="email" id="email" placeholder="ERIK" />
+
+                        <div id="msg"></div>
+
+                        <button id="sign-up" type="button" class="btn btn-outline-light btn-block mt-3"
+                            id="toScoreboardButton">
+                            <h1 class="text-center font-weight-bolder"> SUBMIT </h1>
+                        </button>
+                    </div>
+                    <div class="col-12 text-info mt-3">
+                        <div class="row h-100">
+                            <div class="col-12 text-info mb-3">
+                                <h1 class="display-4 text-center border border-light rounded-pill font-weight-bolder">
+                                    HighScore</h1>
+                            </div>
+                            <div class="text-center col-6 text-info">
+                                <p><strong>NAME</strong></p>
+                                <span id="user-email"></span>
+                            </div>
+                            <div class="text-center col-6 text-info">
+                                <p><strong>Score</strong></p>
+                                <span id="finalScoreSpan"></span>
                             </div>
                         </div>
-
-                        
                     </div>
+                </div>
                 </div>
             </section>
 
@@ -140,5 +136,6 @@
         crossorigin="anonymous"></script>
 </body>
 <script src="app.js"></script>
+<script src="scoreBoard.js"></script>
 
 </html>
