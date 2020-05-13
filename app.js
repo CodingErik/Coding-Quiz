@@ -8,7 +8,8 @@ let answerButtons = document.querySelector('.answerButtons')
 let questionButtons = document.getElementById('questionButtons');
 
 // scorecard
-let scoreCard = document.getElementById('scoreCard')
+let endCard = document.querySelector('#endCard');
+let scoreCard = document.getElementById('scoreCard');
 
 
 //QUIZ SCORE & TIMER
@@ -16,34 +17,19 @@ let scoreCard = document.getElementById('scoreCard')
 //scoreDisplay
 let scoreDisplay = document.querySelector('#score');
 // timerDisplay
-let timerDisplay = document.querySelector('#timer');
+let timerDisplay = document.querySelector('#time');
 //--------------------------------------------------------
 
-
-
 // total time
-let mins = 3;
-let totalSeconds = 60;
-
-// mins * 60;
+let fiveMinutes = 9;
 
 // timer
 let interval;
 
-let question = [
-    {
-        question: 'What is the color of you skin',
-        answer1: 'white',
-        answer2: 'black',
-        answer3: 'brown',
-        answer4: 'yellow',
-        correct: 'white'
-    }
-]
 
 
 //this is the start button 
-startButton.addEventListener('click', function(e){
+startButton.addEventListener('click', function (e) {
     // displaying the questions card, hiding the stardCard
     startCard.setAttribute('class', 'd-none');
     questionCard.classList.remove("d-none");
@@ -51,25 +37,54 @@ startButton.addEventListener('click', function(e){
 
     console.log('start button is being pressed');
 
-    // start the timer 
+    // start the timer function
     interval = setInterval(gameTimer, 1000);
 });
 
-
-
 // timer function, TIMER STARTS
 function gameTimer() {
-    timerDisplay.textContent = totalSeconds;
-    console.log(totalSeconds);
-    totalSeconds--;
+    let timer = fiveMinutes, minutes, seconds;
 
-    if (totalSeconds === 0) {
+    minutes = parseInt(timer / 60);
+    seconds = parseInt(timer % 60);
+    
+    if(minutes < 10){
+        minutes =  "0" + minutes;
+    }else {
+        minutes = minutes;
+    }
+    if(seconds < 10){
+        seconds =  "0" + seconds;
+    }else {
+        seconds = seconds;
+    }
+
+    timerDisplay.textContent = minutes + ':' + seconds;
+    console.log(fiveMinutes);
+    fiveMinutes--;
+
+    if (fiveMinutes < 0) {
         clearInterval(interval);
         console.log('test is done');
-        gameEnds();
+        questionCard.setAttribute('class', 'd-none');
+        endCard.classList.remove('d-none');
+        toScoreboardButton.addEventListener('click', function(){
+            gameEnds();
+        })
+        
     }
 
 };
+
+// game ENDS and display the scorecard
+function gameEnds() {
+    endCard.setAttribute('class', 'd-none');
+    scoreCard.classList.remove("d-none");
+
+    // we gotta display the scores and add an input form 
+};
+
+
 
 
 
@@ -88,11 +103,6 @@ questionButtons.addEventListener('click', function (event) {
 
 
 
-// game ENDS and display the scorecard
-function gameEnds() {
-    questionCard.setAttribute('class', 'd-none');
-    scoreCard.classList.remove("d-none");
-};
 
 
 
@@ -102,25 +112,25 @@ function gameEnds() {
 
 
 
-function startTimer(duration, display) {
-    let timer = duration, minutes, seconds;
-    setInterval(function () {
-        minutes = parseInt(timer / 60, 10);
-        seconds = parseInt(timer % 60, 10);
+// function startTimer(duration, display) {
+//     let timer = duration, minutes, seconds;
+//     setInterval(function () {
+        // minutes = parseInt(timer / 60, 10);
+        // seconds = parseInt(timer % 60, 10);
 
-        minutes = minutes < 10 ? "0" + minutes : minutes;
-        seconds = seconds < 10 ? "0" + seconds : seconds;
+        // minutes = minutes < 10 ? "0" + minutes : minutes;
+        // seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        display.textContent = minutes + ":" + seconds;
+        // display.textContent = minutes + ":" + seconds;
 
-        if (--timer < 0) {
-            timer = duration;
-        }
-    }, 1000);
-}
+        // if (--timer < 0) {
+        //     timer = duration;
+        // }
+//     }, 1000);
+// }
 
 // window.onload = function () {
-//     var fiveMinutes = 60 * 5,
-//         display = document.querySelector('#time');
-//     startTimer(fiveMinutes, display);
+//     var fiveMinutes = 60 * 5, ****** total time
+//     display = document.querySelector('#time');   ******
+//         startTimer(fiveMinutes, display); ******
 // };

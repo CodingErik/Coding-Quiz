@@ -23,7 +23,7 @@
             Time: <span class="display-4" id="time">05:00</span>
         </li>
         <li class="nav-item">
-            Score: <span class="display-4" id="score" >00</span>
+            Score: <span class="display-4" id="score">00</span>
         </li>
     </ul>
 
@@ -34,25 +34,25 @@
                     <div class="col-12" id="questionButtons">
                         <h1 class="display-4"> Question: <span id="questionNumber">What varibale is being phased out of
                                 in ES6?</span> </h1>
-                    
-                    
+
+
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons" id="correct">
-                           answer 1
+                            answer 1
                         </button>
-                    
-                    
+
+
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons">
-                           answer 2
+                            answer 2
                         </button>
-                    
-                    
+
+
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons">
-                           answer 3
+                            answer 3
                         </button>
-                    
-                    
+
+
                         <button type="button" class="btn btn-outline-dark btn-block answerButtons">
-                           answer 4
+                            answer 4
                         </button>
                     </div>
                 </div>
@@ -75,10 +75,50 @@
                     </div>
                 </div>
             </section>
+            <section class="col-12 h-100 d-none bg-info rounded-lg p-4" id="endCard">
+                <div class="row h-100 ">
+                    <div class="col-12">
+                        <h1 class="display-4 text-center font-weight-bolder"> Time is Up! </h1>
+                        <hr>
+                        <h1 class="display-4 text-center"> Click below to save your score!</h1>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" class="btn btn-outline-dark btn-block" id="toScoreboardButton">
+                            <h1 class="text-center font-weight-bolder"> DONE </h1>
+                        </button>
+                    </div>
+                </div>
+            </section>
             <section class="col-12 h-100 d-none rounded-lg" id="scoreCard">
                 <div class="row h-100">
                     <div class="col-12 text-info ">
-                        <h1 class="display-4 text-center border border-light rounded-pill font-weight-bolder"> HighScore Board</h1>
+                        <h1 class="display-4 text-center border border-light rounded-pill font-weight-bolder"> HighScoreBoard</h1>
+                        
+                        <div class="clearfix">
+                            <div class="card">
+                                <h2>Player Sign Up</h2>
+                                <form method="POST">
+                                    <div class="input-group">
+                                        <label for="email">Email</label>
+                                        <input type="text" name="email" id="email" placeholder="janedoe@mail.com" />
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="password">Password</label>
+                                        <input type="password" name="password" id="password"
+                                            placeholder="supersecure123" />
+                                    </div>
+                                    <div id="msg"></div>
+                                    <button id="sign-up">Sign Up</button>
+                                </form>
+                            </div>
+
+                            <div class="card">
+                                <h2>Last Registered User:</h2>
+                                <p><strong>Email:</strong> <span id="user-email"></span></p>
+                                <p><strong>Password:</strong> <span id="user-password"></span></p>
+                            </div>
+                        </div>
+
                         
                     </div>
                 </div>
@@ -87,10 +127,6 @@
         </section>
     </main>
 
-
-
-
-¬ø
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -103,6 +139,6 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </html>
