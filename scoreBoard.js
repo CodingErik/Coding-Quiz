@@ -11,6 +11,8 @@ let finalScore = document.querySelector('#finalScore');
 let finalScoreSpan = document.querySelector('#finalScoreSpan');
 
 
+// this will store the scores of other players
+let playersScores = [];
 
 
 renderLastRegistered();
@@ -22,21 +24,23 @@ function displayMessage(type, message) {
 
 function renderLastRegistered() {
   var email = localStorage.getItem("email");
-//   var password = localStorage.getItem("password");
-//             && password 
+  //   var password = localStorage.getItem("password");
+  //             && password 
   if (email === null) {
     return;
   }
 
   userEmailSpan.textContent = email;
-//   userPasswordSpan.textContent = password;
+  //   userPasswordSpan.textContent = password;
 }
 
-signUpButton.addEventListener("click", function(event) {
+
+// this button submits the players stats to the Highscoreboard
+signUpButton.addEventListener("click", function (event) {
   event.preventDefault();
 
   var email = document.querySelector("#email").value;
-//   var password = document.querySelector("#password").value;
+
 
   if (email === "") {
     displayMessage("error", "Email cannot be blank");
@@ -44,8 +48,24 @@ signUpButton.addEventListener("click", function(event) {
     displayMessage("SUCCESS SCORE SUBMITTED");
 
     localStorage.setItem("email", email);
-    // localStorage.setItem("password", password);
+
     renderLastRegistered();
   }
 });
 
+
+
+
+
+
+
+$('#random-button').on('click', function () {
+  lottery = [];
+
+  for (let i = 0; i < 9; i++) {
+    let randoNum = Math.floor(Math.random() * 10);
+    lottery.push(randoNum);
+  }
+  $('#random-number').prepend('<div>', lottery.join(''), '</div>');
+
+});

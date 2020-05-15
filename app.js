@@ -171,6 +171,8 @@ function gameEnds() {
     // into the local storage and also preprend to the ones that are already there
 };
 
+
+// this function lets the use answer the question an then calls continueGame(); 
 questionButtons.addEventListener('click', function (event) {
     let userChoice = event.target.textContent;
     let correcAnswer = keyAnswer.value;
