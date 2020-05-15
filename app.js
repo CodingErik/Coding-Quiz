@@ -36,7 +36,7 @@ let timerDisplay = document.querySelector('#time');
 //--------------------------------------------------------
 
 // total time
-let fiveMinutes = 60 * 5;
+let fiveMinutes = 5;
 
 // timer
 let interval;
@@ -49,7 +49,7 @@ let i = 0;
 
 
 
-// 5 questions
+// Questions Arr 
 let questions = [
     {       // this is one question object
         prompt: "1 What color are apples?",
@@ -78,14 +78,8 @@ let questions = [
 ];
 
 
-// we need to cycle throught questions 
-// function cycleQuestions() {
-//     // // nextQuestion index
-//     displayNextQuestion();
-
-// }
-
-function answer() {
+// This checks if the game should end or keep going 
+function continueGame() {
     if (i === (questions.length - 1)) {
         clearInterval(interval);
         console.log('test is done, ran out of questions');
@@ -99,8 +93,6 @@ function answer() {
         displayNextQuestion();
     }
 }
-
-
 // this just displays the questions on the DOM 
 function displayNextQuestion() {
 
@@ -114,9 +106,6 @@ function displayNextQuestion() {
     keyAnswer.value = questions[i].key;
 
 };
-
-
-
 //this is the start button START OF THE GAME
 startButton.addEventListener('click', function (e) {
     // displaying the questions card, hiding the stardCard
@@ -129,7 +118,6 @@ startButton.addEventListener('click', function (e) {
     // start the gameTimer function
     interval = setInterval(gameTimer, 1000);
 });
-
 //timer function, TIMER STARTS
 function gameTimer() {
     let timer = fiveMinutes, minutes, seconds;
@@ -160,8 +148,6 @@ function gameTimer() {
     }
 
 };
-
-
 // takes you to the game over card
 function gameOver() {
     // clears the time 
@@ -174,8 +160,7 @@ function gameOver() {
     toScoreboardButton.addEventListener('click', function () {
         gameEnds();
     });
-}
-
+};
 // END OF THE GAME  and display the scorecard
 function gameEnds() {
 
@@ -186,32 +171,30 @@ function gameEnds() {
     // into the local storage and also preprend to the ones that are already there
 };
 
-
-
 questionButtons.addEventListener('click', function (event) {
-    event.stopPropagation();
     let userChoice = event.target.textContent;
     let correcAnswer = keyAnswer.value;
 
-    console.log(event.target);
+    if (event.target.matches('button')) {
 
-    // event.target.parentNode.lastElementChild.value;
-    if (userChoice === correcAnswer) {
-        // ten questions ten points 
-        score += 10;
-        // display the new score
-        scoreDisplay.textContent = score;
-        console.log('you got the right answer');
+        // event.target.parentNode.lastElementChild.value;
+        if (userChoice === correcAnswer) {
+            console.log('you got the right answer');
+            // ten questions ten points 
+            score += 10;
+            // display the new score
+            scoreDisplay.textContent = score;
 
-    } else {
-        console.log('you got the wrong answer');
-        // 30 seconds are subtracted 
-        fiveMinutes -= 10;
-        // display the new score
-        scoreDisplay.textContent = score;
+        } else {
+            console.log('you got the wrong answer');
+            // 30 seconds are subtracted 
+            fiveMinutes -= 10;
+            // display the new score
+            scoreDisplay.textContent = score;
 
+        }
+        continueGame();
     }
-    answer();
 
 });
 
