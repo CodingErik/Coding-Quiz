@@ -6,7 +6,7 @@ let startButton = document.getElementById('startButton');
 //-------------------------------------------------------------
 let questionCard = document.getElementById('questionCard');
 // this is the current question that is being displayed 
-let questionNumber  = document.getElementById('questionNumber');
+let questionNumber = document.getElementById('questionNumber');
 
 let answerButtons1 = document.querySelector('.answerButtons1')
 let answerButtons2 = document.querySelector('.answerButtons2')
@@ -42,7 +42,7 @@ let fiveMinutes = 60 * 5;
 let interval;
 
 // score
-let score = 10;
+let score = 0;
 
 // questionsIndex   !!!!!!!!! need to take care of this 
 let i = 0;
@@ -74,95 +74,19 @@ let questions = [
         answer3: "(c) Orange",
         answer4: "(d) wika",
         key: '(d) wika'
-    },
-    {       // this is one question object
-        prompt: "4 This is another question?",
-        answer1: "(a) Red/Green",
-        answer2: "(b) Purple",
-        answer3: "(c) Orange",
-        answer4: "(d) wika",
-        key: '(d) wika'
-    },
-    {       // this is one question object
-        prompt: "5 This is yet another question?",
-        answer1: "(a) Red/Green",
-        answer2: "(b) Purple",
-        answer3: "(c) Orange",
-        answer4: "(d) wika",
-        key: '(d) wika'
     }
 ];
 
 
 // we need to cycle throught questions 
-function cycleQuestions() {
-    // // nextQuestion index
-    displayNextQuestion();
+// function cycleQuestions() {
+//     // // nextQuestion index
+//     displayNextQuestion();
 
-    // user response
-    answer();
+// }
 
-}
-
-function answer(){
-
-    // wait for click
-    questionButtons.addEventListener('click', function (event) {
-        event.stopPropagation();
-        let userChoice = event.target.textContent;
-        let correcAnswer = keyAnswer.value;
-
-        console.log(event.target);
-
-        // event.target.parentNode.lastElementChild.value;
-        if (userChoice === correcAnswer) {
-            // ten questions ten points 
-            score += 10;
-            // prepare next question
-         
-
-
-            // display the new score
-            scoreDisplay.textContent = score;
-            console.log('you got the right answer');
-
-            cycleQuestions();
-        } else {
-            console.log('you got the wrong answer');
-            // 30 seconds are subtracted 
-            fiveMinutes -= 30;
-            // prepare next question
-         
-
-
-            // display the new score
-            scoreDisplay.textContent = score;
-            cycleQuestions();
-        }
-    });
-
-
-        i++;
-}
-
-
-
-function displayNextQuestion() {
-    console.log('this is what is being displayed', i );
-    console.log('questions length',questions.length);
-
-
-     // display the question 
-     questionNumber.textContent = questions[i].prompt;
-     // display choices on the DOM                        
-     answerButtons1.textContent = questions[i].answer1;
-     answerButtons2.textContent = questions[i].answer2;
-     answerButtons3.textContent = questions[i].answer3;
-     answerButtons4.textContent = questions[i].answer4;
-     keyAnswer.value = questions[i].key;
- 
-
-    if ((questions.length) === i) {
+function answer() {
+    if (i === (questions.length - 1)) {
         clearInterval(interval);
         console.log('test is done, ran out of questions');
         questionCard.setAttribute('class', 'd-none');
@@ -170,9 +94,25 @@ function displayNextQuestion() {
         toScoreboardButton.addEventListener('click', function () {
             gameEnds();
         })
+    } else {
+        i++;
+        displayNextQuestion();
     }
+}
 
-   
+
+// this just displays the questions on the DOM 
+function displayNextQuestion() {
+
+    // display the question 
+    questionNumber.textContent = questions[i].prompt;
+    // display choices on the DOM                        
+    answerButtons1.textContent = questions[i].answer1;
+    answerButtons2.textContent = questions[i].answer2;
+    answerButtons3.textContent = questions[i].answer3;
+    answerButtons4.textContent = questions[i].answer4;
+    keyAnswer.value = questions[i].key;
+
 };
 
 
@@ -184,7 +124,7 @@ startButton.addEventListener('click', function (e) {
     questionCard.classList.remove("d-none");
 
     // start to cycle the questions
-    cycleQuestions();
+    displayNextQuestion()
 
     // start the gameTimer function
     interval = setInterval(gameTimer, 1000);
@@ -248,7 +188,32 @@ function gameEnds() {
 
 
 
+questionButtons.addEventListener('click', function (event) {
+    event.stopPropagation();
+    let userChoice = event.target.textContent;
+    let correcAnswer = keyAnswer.value;
 
+    console.log(event.target);
+
+    // event.target.parentNode.lastElementChild.value;
+    if (userChoice === correcAnswer) {
+        // ten questions ten points 
+        score += 10;
+        // display the new score
+        scoreDisplay.textContent = score;
+        console.log('you got the right answer');
+
+    } else {
+        console.log('you got the wrong answer');
+        // 30 seconds are subtracted 
+        fiveMinutes -= 10;
+        // display the new score
+        scoreDisplay.textContent = score;
+
+    }
+    answer();
+
+});
 
 
 
