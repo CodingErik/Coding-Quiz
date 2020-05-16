@@ -54,14 +54,14 @@
                 </div>
 
             </section>
-            <section class="col-12 h-100 d-none bg-info rounded-lg p-4" id="startCard">
+            <section class="col-12 h-100  bg-info rounded-lg p-4" id="startCard">
                 <div class="row h-100 ">
                     <div class="col-12">
                         <h1 class="display-4 text-center font-weight-bolder"> Welcome to the Code quiz </h1>
                         <hr>
-                        <h1 class="display-4 text-center"> You will have approximately 3 minutes to complete this 10
+                        <h2 class="text-center"> You will have approximately 3 minutes to complete this 10
                             question quiz. Each question is worth 10 points for a total of 100.
-                            If you get an answer wrong you will be deducted time so answer carefully!</h1>
+                            If you get an answer wrong you will be deducted time so answer carefully!</h2>
                     </div>
                     <div class="col-12">
                         <button type="button" class="btn btn-outline-dark btn-block" id="startButton">
@@ -84,18 +84,18 @@
                     </div>
                 </div>
             </section>
-            <section class="col-12 h-100  rounded-lg" id="scoreCard">
+            <section class="col-12 h-100 d-none rounded-lg" id="scoreCard">
                 <div class="row h-100">
                     <div class="col-12 text-info ">
                         <!-- this is the registration form at the end of the game -->
-                        <h2>Final Score:<span id="finalScore">100</span></h2>
+                        <h2>Final Score:<span id="playersFinalScoreDisplay">100</span></h2>
 
-                        <label for="email">NAME</label>
-                        <input type="text" name="email" id="email" placeholder="ERIK" />
+                        <label>NAME</label>
+                        <input type="text" id="playerNameInput" placeholder="ERIK"/>
 
-                        <div id="msg"></div>
+                        <div id="validationMsg"></div>
 
-                        <button id="sign-up" type="button" class="btn btn-outline-light btn-block mt-3"
+                        <button id="signUpButton" type="button" class="btn btn-outline-light btn-block mt-3"
                             id="toScoreboardButton">
                             <h1 class="text-center font-weight-bolder"> SUBMIT </h1>
                         </button>
@@ -108,11 +108,11 @@
                             </div>
                             <div class="text-center col-6 text-info">
                                 <p><strong>NAME</strong></p>
-                                <span id="user-email"></span>
+                                <span id="playerNameDisplay"></span>
                             </div>
                             <div class="text-center col-6 text-info">
                                 <p><strong>Score</strong></p>
-                                <span id="finalScoreSpan"></span>
+                                <span id="finalScoreDisplay"></span>
                             </div>
                         </div>
                     </div>

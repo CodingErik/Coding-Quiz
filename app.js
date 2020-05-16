@@ -36,7 +36,7 @@ let timerDisplay = document.querySelector('#time');
 //--------------------------------------------------------
 
 // total time
-let fiveMinutes = 5;
+let fiveMinutes = 5 * 60;
 
 // timer
 let interval;
@@ -48,35 +48,55 @@ let score = 0;
 let i = 0;
 
 
+// this function saves the game score for the current player
+function save(){
 
-// Questions Arr 
+}
+
+// Questions Arr curtesy of 
+//https://www.w3schools.com/js/js_quiz.asp
 let questions = [
     {       // this is one question object
-        prompt: "1 What color are apples?",
-        answer1: "(a) Red/Green",
-        answer2: "(b) Purple",
-        answer3: "(c) Orange",
-        answer4: "(d) wika",
-        key: '(d) wika'
+        prompt: "What is the correct syntax for a function declaration?",
+        answer1: "(a) console.log('function')",
+        answer2: "(b) let a = 2;",
+        answer3: "(c) 1 === true",
+        answer4: "(d) function (){}",
+        key: "(d) function (){}"
     },
     {       // this is one question object
-        prompt: "2 This is another question?",
-        answer1: "(a) Red/Green",
-        answer2: "(b) Purple",
-        answer3: "(c) Orange",
-        answer4: "(d) wika",
-        key: '(d) wika'
+        prompt: "How to write an IF statement for executing some code if i is NOT equal to 5?",
+        answer1: "(a) if(i <>5)",
+        answer2: "(b) if(i !=5)",
+        answer3: "(c) if i <> 5",
+        answer4: "(d) if i =! 5 then",
+        key: "(b) if(i !=5)"
     },
     {       // this is one question object
-        prompt: "3 This is another question?",
-        answer1: "(a) Red/Green",
-        answer2: "(b) Purple",
-        answer3: "(c) Orange",
-        answer4: "(d) wika",
-        key: '(d) wika'
+        prompt: "How does a FOR loop startt?",
+        answer1: "(a) for(i=0; i<=5)",
+        answer2: "(b) for i = 1 to 5",
+        answer3: "(c) for (i=0; i<=5; i++)",
+        answer4: "(d) for (i<=5; i++)",
+        key: "(c) for (i=0; i<=5; i++)"
+    },
+    {       // this is one question object
+        prompt: "How can you add a comment in a JavaScript?",
+        answer1: "(a) 'this is a comment'",
+        answer2: "(b) //this is a comment",
+        answer3: "(c) <!--this is a comment -->",
+        answer4: "(d) this is a comment ",
+        key: "(b) //this is a comment"
+    },
+    {       // this is one question object
+        prompt: "What is the correct way to write a JavaScript array?",
+        answer1: "(a) var colors = 'red', 'green', 'blue'",
+        answer2: "(b) var colors === [red, green, blue]",
+        answer3: "(c) var colors = [red, green, blue]",
+        answer4: "(d) var colors = ['red', 'green', 'blue']",
+        key: "(d) var colors = ['red', 'green', 'blue']"
     }
 ];
-
 
 // This checks if the game should end or keep going 
 function continueGame() {
@@ -166,7 +186,7 @@ function gameEnds() {
 
     gameOverCard.setAttribute('class', 'd-none');
     scoreCard.classList.remove("d-none");
-
+    playersFinalScoreDisplay.textContent = score;
     // we gotta display the scores and add an input form  !!!!!!!!!!!!!!!!!!
     // into the local storage and also preprend to the ones that are already there
 };
