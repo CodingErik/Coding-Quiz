@@ -36,7 +36,7 @@ let timerDisplay = document.querySelector('#time');
 //--------------------------------------------------------
 
 // total time
-let fiveMinutes = 5 * 60;
+let fiveMinutes = 3 * 60;
 
 // timer
 let interval;
